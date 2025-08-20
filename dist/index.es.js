@@ -1,329 +1,50 @@
-import j, { useEffect as I } from "react";
-var T = { exports: {} }, R = {};
-/**
- * @license React
- * react-jsx-runtime.production.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-var U;
-function se() {
-  if (U) return R;
-  U = 1;
-  var a = Symbol.for("react.transitional.element"), c = Symbol.for("react.fragment");
-  function n(s, i, o) {
-    var u = null;
-    if (o !== void 0 && (u = "" + o), i.key !== void 0 && (u = "" + i.key), "key" in i) {
-      o = {};
-      for (var m in i)
-        m !== "key" && (o[m] = i[m]);
-    } else o = i;
-    return i = o.ref, {
-      $$typeof: a,
-      type: s,
-      key: u,
-      ref: i !== void 0 ? i : null,
-      props: o
-    };
-  }
-  return R.Fragment = c, R.jsx = n, R.jsxs = n, R;
+import { jsxs as o, jsx as i } from "react/jsx-runtime";
+import u, { useEffect as y } from "react";
+function d(...n) {
+  const l = [];
+  for (const e of n)
+    if (e) {
+      if (typeof e == "string" || typeof e == "number")
+        l.push(String(e));
+      else if (typeof e == "object")
+        for (const [s, c] of Object.entries(e))
+          c && l.push(s);
+    }
+  return l.join(" ");
 }
-var x = {};
-/**
- * @license React
- * react-jsx-runtime.development.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-var z;
-function ie() {
-  return z || (z = 1, process.env.NODE_ENV !== "production" && (function() {
-    function a(e) {
-      if (e == null) return null;
-      if (typeof e == "function")
-        return e.$$typeof === re ? null : e.displayName || e.name || null;
-      if (typeof e == "string") return e;
-      switch (e) {
-        case k:
-          return "Fragment";
-        case B:
-          return "Profiler";
-        case q:
-          return "StrictMode";
-        case Z:
-          return "Suspense";
-        case Q:
-          return "SuspenseList";
-        case ee:
-          return "Activity";
-      }
-      if (typeof e == "object")
-        switch (typeof e.tag == "number" && console.error(
-          "Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."
-        ), e.$$typeof) {
-          case V:
-            return "Portal";
-          case X:
-            return (e.displayName || "Context") + ".Provider";
-          case G:
-            return (e._context.displayName || "Context") + ".Consumer";
-          case H:
-            var r = e.render;
-            return e = e.displayName, e || (e = r.displayName || r.name || "", e = e !== "" ? "ForwardRef(" + e + ")" : "ForwardRef"), e;
-          case K:
-            return r = e.displayName || null, r !== null ? r : a(e.type) || "Memo";
-          case L:
-            r = e._payload, e = e._init;
-            try {
-              return a(e(r));
-            } catch {
-            }
-        }
-      return null;
-    }
-    function c(e) {
-      return "" + e;
-    }
-    function n(e) {
-      try {
-        c(e);
-        var r = !1;
-      } catch {
-        r = !0;
-      }
-      if (r) {
-        r = console;
-        var l = r.error, f = typeof Symbol == "function" && Symbol.toStringTag && e[Symbol.toStringTag] || e.constructor.name || "Object";
-        return l.call(
-          r,
-          "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.",
-          f
-        ), c(e);
-      }
-    }
-    function s(e) {
-      if (e === k) return "<>";
-      if (typeof e == "object" && e !== null && e.$$typeof === L)
-        return "<...>";
-      try {
-        var r = a(e);
-        return r ? "<" + r + ">" : "<...>";
-      } catch {
-        return "<...>";
-      }
-    }
-    function i() {
-      var e = w.A;
-      return e === null ? null : e.getOwner();
-    }
-    function o() {
-      return Error("react-stack-top-frame");
-    }
-    function u(e) {
-      if ($.call(e, "key")) {
-        var r = Object.getOwnPropertyDescriptor(e, "key").get;
-        if (r && r.isReactWarning) return !1;
-      }
-      return e.key !== void 0;
-    }
-    function m(e, r) {
-      function l() {
-        Y || (Y = !0, console.error(
-          "%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)",
-          r
-        ));
-      }
-      l.isReactWarning = !0, Object.defineProperty(e, "key", {
-        get: l,
-        configurable: !0
-      });
-    }
-    function v() {
-      var e = a(this.type);
-      return F[e] || (F[e] = !0, console.error(
-        "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
-      )), e = this.props.ref, e !== void 0 ? e : null;
-    }
-    function p(e, r, l, f, b, y, O, S) {
-      return l = y.ref, e = {
-        $$typeof: C,
-        type: e,
-        key: r,
-        props: y,
-        _owner: b
-      }, (l !== void 0 ? l : null) !== null ? Object.defineProperty(e, "ref", {
-        enumerable: !1,
-        get: v
-      }) : Object.defineProperty(e, "ref", { enumerable: !1, value: null }), e._store = {}, Object.defineProperty(e._store, "validated", {
-        configurable: !1,
-        enumerable: !1,
-        writable: !0,
-        value: 0
-      }), Object.defineProperty(e, "_debugInfo", {
-        configurable: !1,
-        enumerable: !1,
-        writable: !0,
-        value: null
-      }), Object.defineProperty(e, "_debugStack", {
-        configurable: !1,
-        enumerable: !1,
-        writable: !0,
-        value: O
-      }), Object.defineProperty(e, "_debugTask", {
-        configurable: !1,
-        enumerable: !1,
-        writable: !0,
-        value: S
-      }), Object.freeze && (Object.freeze(e.props), Object.freeze(e)), e;
-    }
-    function _(e, r, l, f, b, y, O, S) {
-      var d = r.children;
-      if (d !== void 0)
-        if (f)
-          if (te(d)) {
-            for (f = 0; f < d.length; f++)
-              P(d[f]);
-            Object.freeze && Object.freeze(d);
-          } else
-            console.error(
-              "React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead."
-            );
-        else P(d);
-      if ($.call(r, "key")) {
-        d = a(e);
-        var E = Object.keys(r).filter(function(ne) {
-          return ne !== "key";
-        });
-        f = 0 < E.length ? "{key: someKey, " + E.join(": ..., ") + ": ...}" : "{key: someKey}", W[d + f] || (E = 0 < E.length ? "{" + E.join(": ..., ") + ": ...}" : "{}", console.error(
-          `A props object containing a "key" prop is being spread into JSX:
-  let props = %s;
-  <%s {...props} />
-React keys must be passed directly to JSX without using spread:
-  let props = %s;
-  <%s key={someKey} {...props} />`,
-          f,
-          d,
-          E,
-          d
-        ), W[d + f] = !0);
-      }
-      if (d = null, l !== void 0 && (n(l), d = "" + l), u(r) && (n(r.key), d = "" + r.key), "key" in r) {
-        l = {};
-        for (var A in r)
-          A !== "key" && (l[A] = r[A]);
-      } else l = r;
-      return d && m(
-        l,
-        typeof e == "function" ? e.displayName || e.name || "Unknown" : e
-      ), p(
-        e,
-        d,
-        y,
-        b,
-        i(),
-        l,
-        O,
-        S
-      );
-    }
-    function P(e) {
-      typeof e == "object" && e !== null && e.$$typeof === C && e._store && (e._store.validated = 1);
-    }
-    var N = j, C = Symbol.for("react.transitional.element"), V = Symbol.for("react.portal"), k = Symbol.for("react.fragment"), q = Symbol.for("react.strict_mode"), B = Symbol.for("react.profiler"), G = Symbol.for("react.consumer"), X = Symbol.for("react.context"), H = Symbol.for("react.forward_ref"), Z = Symbol.for("react.suspense"), Q = Symbol.for("react.suspense_list"), K = Symbol.for("react.memo"), L = Symbol.for("react.lazy"), ee = Symbol.for("react.activity"), re = Symbol.for("react.client.reference"), w = N.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, $ = Object.prototype.hasOwnProperty, te = Array.isArray, g = console.createTask ? console.createTask : function() {
-      return null;
-    };
-    N = {
-      react_stack_bottom_frame: function(e) {
-        return e();
-      }
-    };
-    var Y, F = {}, M = N.react_stack_bottom_frame.bind(
-      N,
-      o
-    )(), D = g(s(o)), W = {};
-    x.Fragment = k, x.jsx = function(e, r, l, f, b) {
-      var y = 1e4 > w.recentlyCreatedOwnerStacks++;
-      return _(
-        e,
-        r,
-        l,
-        !1,
-        f,
-        b,
-        y ? Error("react-stack-top-frame") : M,
-        y ? g(s(e)) : D
-      );
-    }, x.jsxs = function(e, r, l, f, b) {
-      var y = 1e4 > w.recentlyCreatedOwnerStacks++;
-      return _(
-        e,
-        r,
-        l,
-        !0,
-        f,
-        b,
-        y ? Error("react-stack-top-frame") : M,
-        y ? g(s(e)) : D
-      );
-    };
-  })()), x;
-}
-var J;
-function ae() {
-  return J || (J = 1, process.env.NODE_ENV === "production" ? T.exports = se() : T.exports = ie()), T.exports;
-}
-var t = ae();
-function h(...a) {
-  const c = [];
-  for (const n of a)
-    if (n) {
-      if (typeof n == "string" || typeof n == "number")
-        c.push(String(n));
-      else if (typeof n == "object")
-        for (const [s, i] of Object.entries(n))
-          i && c.push(s);
-    }
-  return c.join(" ");
-}
-const oe = j.forwardRef(
+const h = u.forwardRef(
   ({
-    className: a,
-    variant: c = "primary",
-    size: n = "md",
+    className: n,
+    variant: l = "primary",
+    size: e = "md",
     loading: s = !1,
-    leftIcon: i,
-    rightIcon: o,
-    children: u,
-    disabled: m,
-    ...v
-  }, p) => {
-    const _ = m || s;
-    return /* @__PURE__ */ t.jsxs(
+    leftIcon: c,
+    rightIcon: t,
+    children: r,
+    disabled: p,
+    ...f
+  }, a) => {
+    const m = p || s;
+    return /* @__PURE__ */ o(
       "button",
       {
-        className: h(
+        className: d(
           "scimplify-button",
-          `scimplify-button--${c}`,
-          `scimplify-button--${n}`,
+          `scimplify-button--${l}`,
+          `scimplify-button--${e}`,
           {
             "scimplify-button--loading": s,
-            "scimplify-button--disabled": _
+            "scimplify-button--disabled": m
           },
-          a
+          n
         ),
-        disabled: _,
-        ref: p,
-        ...v,
+        disabled: m,
+        ref: a,
+        ...f,
         children: [
-          s && /* @__PURE__ */ t.jsx("span", { className: "scimplify-button__spinner", "aria-hidden": "true", children: /* @__PURE__ */ t.jsxs("svg", { className: "scimplify-button__spinner-icon", viewBox: "0 0 24 24", children: [
-            /* @__PURE__ */ t.jsx("circle", { cx: "12", cy: "12", r: "10", stroke: "currentColor", strokeWidth: "4", fill: "none", opacity: "0.25" }),
-            /* @__PURE__ */ t.jsx(
+          s && /* @__PURE__ */ i("span", { className: "scimplify-button__spinner", "aria-hidden": "true", children: /* @__PURE__ */ o("svg", { className: "scimplify-button__spinner-icon", viewBox: "0 0 24 24", children: [
+            /* @__PURE__ */ i("circle", { cx: "12", cy: "12", r: "10", stroke: "currentColor", strokeWidth: "4", fill: "none", opacity: "0.25" }),
+            /* @__PURE__ */ i(
               "path",
               {
                 fill: "currentColor",
@@ -331,155 +52,151 @@ const oe = j.forwardRef(
               }
             )
           ] }) }),
-          !s && i && /* @__PURE__ */ t.jsx("span", { className: "scimplify-button__icon scimplify-button__icon--left", "aria-hidden": "true", children: i }),
-          /* @__PURE__ */ t.jsx("span", { className: "scimplify-button__content", children: u }),
-          !s && o && /* @__PURE__ */ t.jsx("span", { className: "scimplify-button__icon scimplify-button__icon--right", "aria-hidden": "true", children: o })
+          !s && c && /* @__PURE__ */ i("span", { className: "scimplify-button__icon scimplify-button__icon--left", "aria-hidden": "true", children: c }),
+          /* @__PURE__ */ i("span", { className: "scimplify-button__content", children: r }),
+          !s && t && /* @__PURE__ */ i("span", { className: "scimplify-button__icon scimplify-button__icon--right", "aria-hidden": "true", children: t })
         ]
       }
     );
   }
 );
-oe.displayName = "Button";
-const le = j.forwardRef(
-  ({ className: a, variant: c = "default", padding: n = "md", hoverable: s = !1, children: i, ...o }, u) => /* @__PURE__ */ t.jsx(
+h.displayName = "Button";
+const _ = u.forwardRef(
+  ({ className: n, variant: l = "default", padding: e = "md", hoverable: s = !1, children: c, ...t }, r) => /* @__PURE__ */ i(
     "div",
     {
-      className: h(
+      className: d(
         "scimplify-card",
-        `scimplify-card--${c}`,
-        `scimplify-card--padding-${n}`,
+        `scimplify-card--${l}`,
+        `scimplify-card--padding-${e}`,
         {
           "scimplify-card--hoverable": s
         },
-        a
+        n
       ),
-      ref: u,
-      ...o,
-      children: i
+      ref: r,
+      ...t,
+      children: c
     }
   )
 );
-le.displayName = "Card";
-const ce = j.forwardRef(
+_.displayName = "Card";
+const b = u.forwardRef(
   ({
-    className: a,
-    size: c = "md",
-    state: n = "default",
+    className: n,
+    size: l = "md",
+    state: e = "default",
     label: s,
-    helperText: i,
-    leftIcon: o,
-    rightIcon: u,
-    id: m,
-    ...v
-  }, p) => {
-    const _ = m || `input-${Math.random().toString(36).substr(2, 9)}`;
-    return /* @__PURE__ */ t.jsxs("div", { className: "scimplify-input-group", children: [
-      s && /* @__PURE__ */ t.jsx("label", { htmlFor: _, className: "scimplify-input__label", children: s }),
-      /* @__PURE__ */ t.jsxs("div", { className: "scimplify-input__wrapper", children: [
-        o && /* @__PURE__ */ t.jsx("span", { className: "scimplify-input__icon scimplify-input__icon--left", children: o }),
-        /* @__PURE__ */ t.jsx(
+    helperText: c,
+    leftIcon: t,
+    rightIcon: r,
+    id: p,
+    ...f
+  }, a) => {
+    const m = p || `input-${Math.random().toString(36).substr(2, 9)}`;
+    return /* @__PURE__ */ o("div", { className: "scimplify-input-group", children: [
+      s && /* @__PURE__ */ i("label", { htmlFor: m, className: "scimplify-input__label", children: s }),
+      /* @__PURE__ */ o("div", { className: "scimplify-input__wrapper", children: [
+        t && /* @__PURE__ */ i("span", { className: "scimplify-input__icon scimplify-input__icon--left", children: t }),
+        /* @__PURE__ */ i(
           "input",
           {
-            id: _,
-            className: h(
+            id: m,
+            className: d(
               "scimplify-input",
-              `scimplify-input--${c}`,
-              `scimplify-input--${n}`,
+              `scimplify-input--${l}`,
+              `scimplify-input--${e}`,
               {
-                "scimplify-input--with-left-icon": !!o,
-                "scimplify-input--with-right-icon": !!u
+                "scimplify-input--with-left-icon": !!t,
+                "scimplify-input--with-right-icon": !!r
               },
-              a
+              n
             ),
-            ref: p,
-            ...v
+            ref: a,
+            ...f
           }
         ),
-        u && /* @__PURE__ */ t.jsx("span", { className: "scimplify-input__icon scimplify-input__icon--right", children: u })
+        r && /* @__PURE__ */ i("span", { className: "scimplify-input__icon scimplify-input__icon--right", children: r })
       ] }),
-      i && /* @__PURE__ */ t.jsx("span", { className: h(
+      c && /* @__PURE__ */ i("span", { className: d(
         "scimplify-input__helper-text",
-        `scimplify-input__helper-text--${n}`
-      ), children: i })
+        `scimplify-input__helper-text--${e}`
+      ), children: c })
     ] });
   }
 );
-ce.displayName = "Input";
-const de = ({
-  open: a,
-  onClose: c,
-  title: n,
+b.displayName = "Input";
+const L = ({
+  open: n,
+  onClose: l,
+  title: e,
   children: s,
-  size: i = "md",
-  closeOnOverlayClick: o = !0,
-  closeOnEscape: u = !0,
-  className: m
-}) => {
-  if (I(() => {
-    if (!u || !a) return;
-    const p = (_) => {
-      _.key === "Escape" && c();
-    };
-    return document.addEventListener("keydown", p), () => document.removeEventListener("keydown", p);
-  }, [u, a, c]), I(() => (a ? document.body.style.overflow = "hidden" : document.body.style.overflow = "unset", () => {
-    document.body.style.overflow = "unset";
-  }), [a]), !a) return null;
-  const v = (p) => {
-    o && p.target === p.currentTarget && c();
+  size: c = "md",
+  closeOnOverlayClick: t = !0,
+  closeOnEscape: r = !0,
+  className: p
+}) => (y(() => {
+  if (!r || !n) return;
+  const a = (m) => {
+    m.key === "Escape" && l();
   };
-  return /* @__PURE__ */ t.jsx("div", { className: "scimplify-modal-overlay", onClick: v, children: /* @__PURE__ */ t.jsxs(
+  return document.addEventListener("keydown", a), () => document.removeEventListener("keydown", a);
+}, [r, n, l]), y(() => (n ? document.body.style.overflow = "hidden" : document.body.style.overflow = "unset", () => {
+  document.body.style.overflow = "unset";
+}), [n]), n ? /* @__PURE__ */ i("div", { className: "scimplify-modal-overlay", onClick: (a) => {
+  t && a.target === a.currentTarget && l();
+}, children: /* @__PURE__ */ o(
+  "div",
+  {
+    className: d(
+      "scimplify-modal",
+      `scimplify-modal--${c}`,
+      p
+    ),
+    role: "dialog",
+    "aria-modal": "true",
+    "aria-labelledby": e ? "modal-title" : void 0,
+    children: [
+      e && /* @__PURE__ */ o("div", { className: "scimplify-modal__header", children: [
+        /* @__PURE__ */ i("h2", { id: "modal-title", className: "scimplify-modal__title", children: e }),
+        /* @__PURE__ */ i(
+          "button",
+          {
+            className: "scimplify-modal__close",
+            onClick: l,
+            "aria-label": "Close modal",
+            children: /* @__PURE__ */ i("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "currentColor", children: /* @__PURE__ */ i("path", { d: "M18.3 5.71L12 12.01L5.7 5.71L4.29 7.12L10.59 13.42L4.29 19.72L5.7 21.13L12 14.83L18.3 21.13L19.71 19.72L13.41 13.42L19.71 7.12L18.3 5.71Z" }) })
+          }
+        )
+      ] }),
+      /* @__PURE__ */ i("div", { className: "scimplify-modal__content", children: s })
+    ]
+  }
+) }) : null), N = u.forwardRef(
+  ({ className: n, size: l = "md", variant: e = "primary", label: s, ...c }, t) => /* @__PURE__ */ o(
     "div",
     {
-      className: h(
-        "scimplify-modal",
-        `scimplify-modal--${i}`,
-        m
-      ),
-      role: "dialog",
-      "aria-modal": "true",
-      "aria-labelledby": n ? "modal-title" : void 0,
-      children: [
-        n && /* @__PURE__ */ t.jsxs("div", { className: "scimplify-modal__header", children: [
-          /* @__PURE__ */ t.jsx("h2", { id: "modal-title", className: "scimplify-modal__title", children: n }),
-          /* @__PURE__ */ t.jsx(
-            "button",
-            {
-              className: "scimplify-modal__close",
-              onClick: c,
-              "aria-label": "Close modal",
-              children: /* @__PURE__ */ t.jsx("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "currentColor", children: /* @__PURE__ */ t.jsx("path", { d: "M18.3 5.71L12 12.01L5.7 5.71L4.29 7.12L10.59 13.42L4.29 19.72L5.7 21.13L12 14.83L18.3 21.13L19.71 19.72L13.41 13.42L19.71 7.12L18.3 5.71Z" }) })
-            }
-          )
-        ] }),
-        /* @__PURE__ */ t.jsx("div", { className: "scimplify-modal__content", children: s })
-      ]
-    }
-  ) });
-}, ue = j.forwardRef(
-  ({ className: a, size: c = "md", variant: n = "primary", label: s, ...i }, o) => /* @__PURE__ */ t.jsxs(
-    "div",
-    {
-      className: h(
+      className: d(
         "scimplify-spinner-container",
         {
           "scimplify-spinner-container--with-label": !!s
         },
-        a
+        n
       ),
-      ref: o,
-      ...i,
+      ref: t,
+      ...c,
       children: [
-        /* @__PURE__ */ t.jsx(
+        /* @__PURE__ */ i(
           "div",
           {
-            className: h(
+            className: d(
               "scimplify-spinner",
-              `scimplify-spinner--${c}`,
-              `scimplify-spinner--${n}`
+              `scimplify-spinner--${l}`,
+              `scimplify-spinner--${e}`
             ),
             role: "status",
             "aria-label": s || "Loading",
-            children: /* @__PURE__ */ t.jsx("svg", { className: "scimplify-spinner__svg", viewBox: "0 0 50 50", children: /* @__PURE__ */ t.jsx(
+            children: /* @__PURE__ */ i("svg", { className: "scimplify-spinner__svg", viewBox: "0 0 50 50", children: /* @__PURE__ */ i(
               "circle",
               {
                 className: "scimplify-spinner__circle",
@@ -493,17 +210,17 @@ const de = ({
             ) })
           }
         ),
-        s && /* @__PURE__ */ t.jsx("span", { className: "scimplify-spinner__label", children: s })
+        s && /* @__PURE__ */ i("span", { className: "scimplify-spinner__label", children: s })
       ]
     }
   )
 );
-ue.displayName = "Spinner";
+N.displayName = "Spinner";
 export {
-  oe as Button,
-  le as Card,
-  ce as Input,
-  de as Modal,
-  ue as Spinner,
-  h as cn
+  h as Button,
+  _ as Card,
+  b as Input,
+  L as Modal,
+  N as Spinner,
+  d as cn
 };

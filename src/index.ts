@@ -16,6 +16,3 @@ export type { SpinnerProps } from './components/Spinner/Spinner'
 
 // Export utility functions
 export { cn } from './utils/cn'
-
-// Export main CSS
-import './styles/index.css'
