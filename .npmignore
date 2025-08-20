@@ -1,0 +1,26 @@
+# Source files
+src/
+public/
+index.html
+
+# Development files
+.vscode/
+.github/
+vite.config.ts
+tsconfig*.json
+eslint.config.js
+
+# Documentation
+README.md
+
+# Dependencies
+node_modules/
+
+# Build artifacts (except dist)
+*.log
+.DS_Store
+
+# Keep only the dist folder and package files
+!dist/
+!package.json
+!LICENSE

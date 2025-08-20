@@ -1,0 +1,67 @@
+{
+  "name": "@barenya07/design-system",
+  "private": false,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A reusable React component library for Scimplify projects",
+  "main": "./dist/index.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.js"
+    },
+    "./styles": "./dist/designtest.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Barenya07/design-system.git"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "library",
+    "typescript",
+    "nextjs"
+  ],
+  "author": "Scimplify Team",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "build:lib": "vite build --mode library",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build:lib"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.39.1",
+    "vite": "^7.1.2",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}

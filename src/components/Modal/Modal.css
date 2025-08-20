@@ -1,0 +1,133 @@
+/* Modal Component Styles */
+
+.scimplify-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  z-index: 1000;
+  animation: modalOverlayIn var(--transition-fast) ease-out;
+}
+
+.scimplify-modal {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalIn var(--transition-normal) ease-out;
+}
+
+/* Sizes */
+.scimplify-modal--sm {
+  max-width: 24rem;
+}
+
+.scimplify-modal--md {
+  max-width: 32rem;
+}
+
+.scimplify-modal--lg {
+  max-width: 48rem;
+}
+
+.scimplify-modal--xl {
+  max-width: 64rem;
+}
+
+/* Header */
+.scimplify-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--gray-200);
+  flex-shrink: 0;
+}
+
+.scimplify-modal__title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.scimplify-modal__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: none;
+  color: var(--gray-400);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.scimplify-modal__close:hover {
+  color: var(--gray-600);
+  background-color: var(--gray-100);
+}
+
+.scimplify-modal__close:focus-visible {
+  outline: 2px solid var(--primary-500);
+  outline-offset: 2px;
+}
+
+/* Content */
+.scimplify-modal__content {
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Animations */
+@keyframes modalOverlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .scimplify-modal-overlay {
+    padding: var(--spacing-sm);
+  }
+  
+  .scimplify-modal {
+    max-height: 95vh;
+  }
+  
+  .scimplify-modal__header {
+    padding: var(--spacing-md);
+  }
+  
+  .scimplify-modal__content {
+    padding: var(--spacing-md);
+  }
+}

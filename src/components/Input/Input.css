@@ -1,0 +1,153 @@
+/* Input Component Styles */
+
+.scimplify-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.scimplify-input__label {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--gray-700);
+  margin-bottom: var(--spacing-xs);
+}
+
+.scimplify-input__wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.scimplify-input {
+  width: 100%;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  background-color: white;
+  color: var(--gray-900);
+  transition: all var(--transition-fast);
+  font-family: inherit;
+  outline: none;
+}
+
+.scimplify-input:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+}
+
+.scimplify-input::placeholder {
+  color: var(--gray-400);
+}
+
+.scimplify-input:disabled {
+  background-color: var(--gray-50);
+  color: var(--gray-500);
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.scimplify-input--sm {
+  height: 2rem;
+  padding: 0 var(--spacing-sm);
+  font-size: var(--font-size-sm);
+}
+
+.scimplify-input--md {
+  height: 2.5rem;
+  padding: 0 var(--spacing-md);
+  font-size: var(--font-size-base);
+}
+
+.scimplify-input--lg {
+  height: 3rem;
+  padding: 0 var(--spacing-lg);
+  font-size: var(--font-size-lg);
+}
+
+/* States */
+.scimplify-input--error {
+  border-color: var(--error-500);
+}
+
+.scimplify-input--error:focus {
+  border-color: var(--error-500);
+  box-shadow: 0 0 0 3px rgb(239 68 68 / 0.1);
+}
+
+.scimplify-input--success {
+  border-color: var(--success-500);
+}
+
+.scimplify-input--success:focus {
+  border-color: var(--success-500);
+  box-shadow: 0 0 0 3px rgb(34 197 94 / 0.1);
+}
+
+/* With Icons */
+.scimplify-input--with-left-icon.scimplify-input--sm {
+  padding-left: 2rem;
+}
+
+.scimplify-input--with-left-icon.scimplify-input--md {
+  padding-left: 2.5rem;
+}
+
+.scimplify-input--with-left-icon.scimplify-input--lg {
+  padding-left: 3rem;
+}
+
+.scimplify-input--with-right-icon.scimplify-input--sm {
+  padding-right: 2rem;
+}
+
+.scimplify-input--with-right-icon.scimplify-input--md {
+  padding-right: 2.5rem;
+}
+
+.scimplify-input--with-right-icon.scimplify-input--lg {
+  padding-right: 3rem;
+}
+
+/* Icons */
+.scimplify-input__icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scimplify-input__icon--left {
+  left: var(--spacing-sm);
+}
+
+.scimplify-input__icon--right {
+  right: var(--spacing-sm);
+}
+
+.scimplify-input__icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.scimplify-input--lg + .scimplify-input__icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Helper Text */
+.scimplify-input__helper-text {
+  font-size: var(--font-size-xs);
+  color: var(--gray-500);
+  margin-top: var(--spacing-xs);
+}
+
+.scimplify-input__helper-text--error {
+  color: var(--error-600);
+}
+
+.scimplify-input__helper-text--success {
+  color: var(--success-600);
+}

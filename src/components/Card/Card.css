@@ -1,0 +1,62 @@
+/* Card Component Styles */
+
+.scimplify-card {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+/* Variants */
+.scimplify-card--default {
+  border: 1px solid var(--gray-200);
+}
+
+.scimplify-card--bordered {
+  border: 2px solid var(--gray-300);
+}
+
+.scimplify-card--elevated {
+  border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-md);
+}
+
+/* Padding */
+.scimplify-card--padding-none {
+  padding: 0;
+}
+
+.scimplify-card--padding-sm {
+  padding: var(--spacing-md);
+}
+
+.scimplify-card--padding-md {
+  padding: var(--spacing-lg);
+}
+
+.scimplify-card--padding-lg {
+  padding: var(--spacing-xl);
+}
+
+/* Hoverable */
+.scimplify-card--hoverable {
+  cursor: pointer;
+}
+
+.scimplify-card--hoverable:hover {
+  transform: translateY(-2px);
+}
+
+.scimplify-card--hoverable.scimplify-card--default:hover {
+  border-color: var(--gray-300);
+  box-shadow: var(--shadow-sm);
+}
+
+.scimplify-card--hoverable.scimplify-card--bordered:hover {
+  border-color: var(--gray-400);
+  box-shadow: var(--shadow-sm);
+}
+
+.scimplify-card--hoverable.scimplify-card--elevated:hover {
+  box-shadow: var(--shadow-lg);
+}

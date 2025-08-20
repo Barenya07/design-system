@@ -1,0 +1,94 @@
+/* Spinner Component Styles */
+
+.scimplify-spinner-container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.scimplify-spinner-container--with-label {
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.scimplify-spinner {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+.scimplify-spinner__svg {
+  display: block;
+}
+
+.scimplify-spinner__circle {
+  stroke-linecap: round;
+  stroke-dasharray: 90, 150;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+/* Sizes */
+.scimplify-spinner--sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.scimplify-spinner--md {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.scimplify-spinner--lg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.scimplify-spinner--xl {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Variants */
+.scimplify-spinner--primary {
+  color: var(--primary-500);
+}
+
+.scimplify-spinner--secondary {
+  color: var(--gray-500);
+}
+
+.scimplify-spinner--white {
+  color: white;
+}
+
+/* Label */
+.scimplify-spinner__label {
+  font-size: var(--font-size-sm);
+  color: var(--gray-600);
+  text-align: center;
+}
+
+/* Animations */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
