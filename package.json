@@ -16,7 +16,8 @@
       "import": "./dist/index.es.js",
       "require": "./dist/index.js"
     },
-    "./styles": "./dist/design-system.css"
+    "./styles": "./dist/design-system.css",
+    "./dist/design-system.css": "./dist/design-system.css"
   },
   "repository": {
     "type": "git",
