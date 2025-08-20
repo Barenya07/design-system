@@ -12,6 +12,9 @@ export default defineConfig(({ mode }) => {
         react(),
         dts({
           insertTypesEntry: true,
+          outDir: 'dist',
+          include: ['src/**/*'],
+          exclude: ['src/**/*.test.*', 'src/**/*.spec.*'],
         }),
       ],
       build: {
