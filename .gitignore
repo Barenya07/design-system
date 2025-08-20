@@ -8,7 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+# dist - commented out because we need dist files for GitHub installs
 dist-ssr
 *.local
 

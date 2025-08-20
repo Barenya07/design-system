@@ -31,7 +31,7 @@ npm install /path/to/design-system
 
 ```tsx
 import { Button, Card, Input, Modal, Spinner } from '@barenya07/design-system'
-import '@barenya07/design-system/styles'
+import '@barenya07/design-system/dist/design-system.css'
 
 export default function MyPage() {
   return (

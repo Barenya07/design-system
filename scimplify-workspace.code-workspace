@@ -1,0 +1,15 @@
+{
+  "folders": [
+    {
+      "name": "Design System",
+      "path": "."
+    },
+    {
+      "name": "Next.js Project",
+      "path": "../your-nextjs-project"
+    }
+  ],
+  "settings": {
+    "typescript.preferences.includePackageJsonAutoImports": "on"
+  }
+}
