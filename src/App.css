@@ -2,12 +2,13 @@
 
 .app {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  background: #121212;
   padding: 2rem 1rem;
 }
 
 .app__container {
-  max-width: 1200px;
+  width: 100vw;
   margin: 0 auto;
   background: white;
   border-radius: 1rem;
@@ -16,7 +17,8 @@
 }
 
 .app__header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  background: #121212;
   color: white;
   padding: 3rem 2rem;
   text-align: center;
@@ -34,8 +36,175 @@
   margin: 0;
 }
 
-.app__main {
+.app__layout {
+  display: flex;
+  min-height: 600px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background: #f8fafc;
+  border-right: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.sidebar__nav {
+  padding: 2rem 0;
+}
+
+.sidebar__title {
+  padding: 0 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin: 0 0 1rem 0;
+}
+
+.sidebar__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar__item {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #475569;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.sidebar__item:hover {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.sidebar__item--active {
+  background: #ddd6fe;
+  color: #7c3aed;
+  border-left-color: #7c3aed;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
   padding: 2rem;
+  overflow-y: auto;
+}
+
+/* Component Showcase Styles */
+.component-showcase {
+  max-width: 900px;
+}
+
+.component-showcase__header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.component-showcase__header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.component-showcase__header p {
+  color: #64748b;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.variant-section {
+  margin-bottom: 3rem;
+}
+
+.variant-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #334155;
+  margin: 0 0 1.5rem 0;
+}
+
+.variant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.variant-grid--vertical {
+  grid-template-columns: 1fr;
+  max-width: 500px;
+}
+
+.variant-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: white;
+}
+
+.variant-preview {
+  padding: 1.5rem;
+  background: #fafafa;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+}
+
+.variant-code {
+  padding: 1rem;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.variant-code code {
+  background: #f1f5f9;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.75rem;
+  color: #475569;
+  flex: 1;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.copy-btn {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.copy-btn:hover {
+  background: #6d28d9;
+}
+
+.copy-btn:active {
+  background: #5b21b6;
 }
 
 .app__footer {
@@ -44,6 +213,11 @@
   padding: 1rem 2rem;
   text-align: center;
   color: #64748b;
+}
+
+/* Legacy styles for compatibility */
+.app__main {
+  padding: 2rem;
 }
 
 .demo-section {
@@ -84,11 +258,41 @@
     font-size: 2rem;
   }
   
-  .app__main {
+  .app__layout {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    order: 2;
+  }
+  
+  .main-content {
     padding: 1rem;
   }
   
-  .demo-grid {
+  .variant-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .variant-code {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .copy-btn {
+    align-self: flex-end;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+  }
+  
+  .variant-grid {
     grid-template-columns: 1fr;
   }
 }

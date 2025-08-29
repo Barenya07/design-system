@@ -1,18 +1,11 @@
 // Main entry point for the component library
 
-// Export all components
-export { default as Button } from './components/Button/Button'
-export { default as Card } from './components/Card/Card'
-export { default as Input } from './components/Input/Input'
-export { default as Modal } from './components/Modal/Modal'
-export { default as Spinner } from './components/Spinner/Spinner'
+// Export UI components (shadcn/ui style)
+export { Button } from './components/ui/button'
+export { Tabs, TabsList, TabsTrigger, TabsContent } from './components/ui/tabs'
 
 // Export types
-export type { ButtonProps } from './components/Button/Button'
-export type { CardProps } from './components/Card/Card'
-export type { InputProps } from './components/Input/Input'
-export type { ModalProps } from './components/Modal/Modal'
-export type { SpinnerProps } from './components/Spinner/Spinner'
+export type { ButtonProps } from './components/ui/button'
 
 // Export utility functions
-export { cn } from './utils/cn'
+export { cn } from './lib/utils'

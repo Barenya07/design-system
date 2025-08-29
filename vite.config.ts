@@ -17,6 +17,11 @@ export default defineConfig(({ mode }) => {
           exclude: ['src/**/*.test.*', 'src/**/*.spec.*'],
         }),
       ],
+      resolve: {
+        alias: {
+          "@": resolve(__dirname, "./src"),
+        },
+      },
       build: {
         lib: {
           entry: resolve(__dirname, 'src/index.ts'),
@@ -41,5 +46,10 @@ export default defineConfig(({ mode }) => {
   // Development server configuration
   return {
     plugins: [react()],
+    resolve: {
+      alias: {
+        "@": resolve(__dirname, "./src"),
+      },
+    },
   }
 })
