@@ -7,12 +7,6 @@ type ComponentType = 'Button' | 'Input' | 'Card' | 'Tabs' // | 'Modal' | 'Spinne
 
 function App() {
   const [activeComponent, setActiveComponent] = useState<ComponentType>('Button')
-  const [isLoading, setIsLoading] = useState(false)
-
-  const handleLoadingDemo = () => {
-    setIsLoading(true)
-    setTimeout(() => setIsLoading(false), 2000)
-  }
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text)
@@ -30,7 +24,6 @@ function App() {
             </div>
 
             <div className="variant-section">
-              <h3>Shadcn/UI Base Variants</h3>
               <div className="variant-grid">
                 <div className="variant-item">
                   <div className="variant-preview">
@@ -404,3 +397,6 @@ function App() {
 }
 
 export default App
+
+
+// commenting for testing
